@@ -1,30 +1,36 @@
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
-from catalog.models import Product
+from catalog.models import Product, Contact
+from django.http import request
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
+class ProductsListView(ListView):
+    model = Product
 
 
-def products_list(request):
-    products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'products/products_list.html', context)
+class ProductDetailView(DetailView):
+    model = Product
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ['name', 'description', 'photo', 'category', 'price']
+    success_url = reverse_lazy('catalog:product_list')
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ['name', 'description', 'photo', 'category', 'price']
+    success_url = reverse_lazy('catalog:product_list')
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('catalog:product_list')
+
+
+class ContactListView(ListView):
+    model = Contact
+    context_object_name = 'contacts'
 
 
 
-
-def home(request):
-    return render(request, 'products/home.html')
-
-
-def contacts(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        phone = request.POST.get('phone')
-        message = request.POST.get('message')
-
-        return HttpResponse(f'Спасибо, {name}! Данные получены.')
-    return render(request, 'products/contacts.html')
-
-def product_detail(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
-    context = {'product': product}
-    return render(request, 'products/product_detail.html', context)

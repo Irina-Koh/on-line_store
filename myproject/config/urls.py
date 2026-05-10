@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('catalog.urls', namespace='catalog')),
+    path('products/', include('catalog.urls', namespace='products')),
+    path('blog/', include('blog.urls', namespace='blog')),
+    path('', RedirectView.as_view(url='/blog/', permanent=False), name='home'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

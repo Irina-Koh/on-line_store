@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
 
 
@@ -32,3 +33,24 @@ class Product(models.Model):
         verbose_name_plural = 'Продукты'
         ordering = ['name', 'category', 'price',]
 
+class Contact(models.Model):
+    name = models.CharField(
+        max_length=150,
+        verbose_name='Имя',
+        help_text='Ваше имя'
+    )
+    phone = models.CharField(
+        max_length=20,
+        verbose_name='Номер телефона',
+        help_text='Введите номер телефона',
+        validators=[
+            RegexValidator(
+                regex=r'^\\+?1?\\d{9,15}$',
+                message="Номер телефона должен быть в формате: '+999999999'. До 15 цифр."
+            )
+        ]
+    )
+    message = models.TextField(
+        verbose_name='Сообщение',
+        help_text='Введите сообщение'
+    )
