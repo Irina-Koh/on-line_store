@@ -1,0 +1,54 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Яблоки",
+        "description": "Красные, наливные, не ядовитые",
+        "photo": "templates/photo/Снимок_экрана_2026-04-07_222052.png",
+        "category": 1,
+        "price": 150.0,
+        "created_at": "2026-04-12T17:51:40.695Z",
+        "updated_at": "2026-04-12T17:51:40.696Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Морковь",
+        "description": "Самая полезная на земле",
+        "photo": "templates/photo/Снимок_экрана_2026-04-12_232501.png",
+        "category": 2,
+        "price": 50.0,
+        "created_at": "2026-04-12T18:25:31.978Z",
+        "updated_at": "2026-04-12T18:25:31.978Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Молоко",
+        "description": "Свежее, полезное",
+        "photo": "templates/photo/Снимок_экрана_2026-04-12_232709.png",
+        "category": 3,
+        "price": 80.0,
+        "created_at": "2026-04-12T18:27:44.110Z",
+        "updated_at": "2026-04-12T18:27:44.110Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+        "name": "Апельсин",
+        "description": "Оранжевый",
+        "photo": "templates/photo/Снимок_экрана_2026-04-12_232501_zHJdPll.png",
+        "category": 1,
+        "price": 250.0,
+        "created_at": "2026-04-12T18:29:44.925Z",
+        "updated_at": "2026-04-12T19:13:50.359Z"
+    }
+}
+]
