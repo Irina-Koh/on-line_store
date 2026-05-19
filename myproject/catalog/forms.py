@@ -1,9 +1,7 @@
-from xml.dom import ValidationErr
-
 from django.core.exceptions import ValidationError
 from django.forms import BooleanField, ModelForm, CharField
-from myproject.catalog.models import Product, Contact, Category
-from myproject.catalog.templatetags import forms
+from catalog.models import Product, Contact, Category
+
 
 FORBIDDEN_WORDS = [
     'казино', 'криптовалюта', 'крипта', 'биржа', 'дешево',

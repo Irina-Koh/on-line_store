@@ -1,5 +1,4 @@
-from .models import Product, Contact, Category
-from django.http import request
+from .models import Product, Contact
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
